@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "RLEList.h"
-#include "AsciiArtTool.h"
 #include "assert.h"
 
 #define N 101
@@ -40,10 +39,11 @@ int main(){
         printf("Error in test1\n");
         exit(1);
     }
+    free(string);
+
     //Check Function Size for standart list
     size = RLEListSize(list);
     assert(size == 102);
-    free(string);
 
     //test2 - Current string should hold the string in test2
     RLEListRemove(list, 0);
@@ -84,7 +84,7 @@ int main(){
     }
     get_char = RLEListGet(list, sizeof(sleeping_cat), &result);
     assert(result == RLE_LIST_INDEX_OUT_OF_BOUNDS);
-    get_char = RLEListGet(list, 0, &result);
+    get_char = RLEListGet(list, 0, NULL); //You should be able to pass NULL here
     assert(get_char == ' ');
     get_char = RLEListGet(list, 7, &result);
     assert(get_char == '\\');
