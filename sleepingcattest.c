@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "RLEList.h"
+#include "AsciiArtTool.h"
 #include "assert.h"
 
 #define N 101
@@ -47,7 +48,7 @@ int main(){
     RLEListRemove(list, 0);
     RLEListRemove(list, 0);
     char test2[] = "a100\n";
-    string = RLEListExportToString(list, &result);
+    string = RLEListExportToString(list, NULL);
     if(strcmp(test2, string)!=0){
         free(string);
         printf("Error in test2\n");
@@ -72,6 +73,7 @@ int main(){
 
     //Check function Get
     char get_char;
+    get_char = RLEListGet(0, 0, NULL);
     get_char = RLEListGet(0, 0, &result);
     assert(result == RLE_LIST_NULL_ARGUMENT);
     assert(get_char == 0);
