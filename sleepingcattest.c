@@ -120,13 +120,17 @@ int main(){
         printf("String should be NULL but is not\n");
         exit(3);
     }
-    string = RLEListExportToString(list, &result);
+    string = RLEListExportToString(list, NULL); //You should be able to pass NULL Here
     char test3[] = "a3\nb3\nc3\nd3\n";
     assert(strcmp(test3, string) == 0);
     free(string);
 
     //Test map function
-    RLEListMap(list, myMapFunction);
+    result = RLEListMap(NULL, myMapFunction);
+    assert(result == RLE_LIST_NULL_ARGUMENT);
+    result = RLEListMap(list, NULL);
+    assert(result == RLE_LIST_NULL_ARGUMENT);
+    result = RLEListMap(list, myMapFunction);
     assert(result == RLE_LIST_SUCCESS);
     string = RLEListExportToString(list, &result);
     assert(string);
