@@ -20,7 +20,7 @@ int main(){
     //Check Function Size for Empty List
     int size = RLEListSize(list);
     assert(size == 0);
-    int size = RLEListSize(NULL);
+    size = RLEListSize(NULL);
     assert(size == -1);
     
     //Check Function Append
