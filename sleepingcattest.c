@@ -16,12 +16,13 @@ int main(){
 
     //Check Function Create
     list = RLEListCreate();
-    assert(list);
 
     //Check Function Size for Empty List
     int size = RLEListSize(list);
+    assert(size == 0);
+    int size = RLEListSize(NULL);
     assert(size == -1);
-
+    
     //Check Function Append
     assert(RLEListAppend(NULL, 'a') == RLE_LIST_NULL_ARGUMENT);
     assert(RLEListAppend(list, 0) == RLE_LIST_NULL_ARGUMENT);   
