@@ -138,6 +138,7 @@ int main(){
     char test4[] = "a3\nb3\nc3\ne3\n";
     assert(strcmp(test4, string) == 0);
     free(string);
+    RLEListDestroy(list);
 
     printf("Hurray - Test passed. Here is a Sleeping cat:\n\n%s\n\n", sleeping_cat);
     return 0;
